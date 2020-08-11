@@ -1,0 +1,2 @@
+rootProject.name='Mvvm+Rxjava'
+include ':app'
