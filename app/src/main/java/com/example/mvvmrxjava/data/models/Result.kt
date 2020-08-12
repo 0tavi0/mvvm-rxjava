@@ -1,4 +1,4 @@
-package com.example.mvvmrxjava.data.entity
+package com.example.mvvmrxjava.data.models
 
 data class Result(
     val cell: String,

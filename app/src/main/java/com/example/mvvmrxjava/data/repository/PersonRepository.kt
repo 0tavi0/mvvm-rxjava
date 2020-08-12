@@ -1,11 +1,8 @@
-package com.example.mvvmrxjava.data.api
+package com.example.mvvmrxjava.data.repository
 
 import com.example.mvvmrxjava.data.models.Response
 import io.reactivex.Single
-import retrofit2.http.GET
 
-interface ApiInterface {
-
-    @GET("api/")
+interface PersonRepository {
     fun getPerson() : Single<Response>
 }
