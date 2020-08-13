@@ -70,5 +70,6 @@ dependencies {
 
     //koin
     implementation 'org.koin:koin-android-viewmodel:1.0.2'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
 }

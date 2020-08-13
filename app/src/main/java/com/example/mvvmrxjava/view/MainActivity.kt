@@ -22,12 +22,28 @@ class MainActivity : AppCompatActivity() {
         viewModel.person.observe(this, Observer {
             Log.e("Activity", "${it.results}")
             tv_test.text = it.results[0].email
+            swipeRefreshLayout.isRefreshing = false
         })
         viewModel.networkState.observe(this, Observer {
             progress.visibility = if (it == NetworkState.LOADING) View.VISIBLE else View.GONE
-            tv_text_error.visibility = if (it == NetworkState.ERROR) View.VISIBLE else View.GONE
+
+            if (it == NetworkState.ERROR){
+                tv_text_error.let {t ->
+                    t.visibility = View.VISIBLE
+                    t.text = it.msg
+                }
+            }else {
+                tv_text_error.visibility = View.GONE
+            }
+
+
+            swipeRefreshLayout.isRefreshing = false
+
         })
 
+        swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getPersonRefactor()
+        }
     }
 
 
